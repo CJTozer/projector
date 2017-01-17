@@ -10,8 +10,41 @@ block content
     console.log('Hello Jade!');
     google.charts.load('current', {'packages':['gantt']});
     google.charts.setOnLoadCallback(drawChart);
+
+    function daysToMilliseconds(days) {
+      return days * 24 * 60 * 60 * 1000;
+    }
+
     function drawChart() {
-      // @@@ Pull code from index.html
-      console.log('LOADED!');
-    };
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Task ID');
+      data.addColumn('string', 'Task Name');
+      data.addColumn('string', 'Resource');
+      data.addColumn('date', 'Start Date');
+      data.addColumn('date', 'End Date');
+      data.addColumn('number', 'Duration');
+      data.addColumn('number', 'Percent Complete');
+      data.addColumn('string', 'Dependencies');
+
+      // @@@ Data should be fed in here as:
+      // - Start date - specified
+      // - End data - max of time remaining and specified end date
+      // - Percent completion - calculate from done/todo
+      data.addRows([
+        ['Investigation', 'Initial Investigation', 'CJT',
+         new Date(2017, 0, 1), new Date(2017, 0, 15), null,  80,  null],
+        ['SLD', 'SLD', 'AJT',
+         new Date(2017, 0, 15), null, daysToMilliseconds(15), 20,  'Investigation'],
+      ]);
+
+      var options = {
+        // @@@ 42*N + 50?
+        height: 42 * 5 + 50
+      };
+
+      var chart = new google.visualization.Gantt(document.getElementById('chart_div'));
+
+      chart.draw(data, options);
+    }
     console.log('Good bye!');
