@@ -1,20 +1,22 @@
-var express = require('express')
-  , logger = require('morgan')
-  , app = express()
-  , template = require('jade').compileFile(__dirname + '/source/templates/homepage.jade')
+#!/usr/bin/env node
+const express = require( 'express' );
+const logger = require( 'morgan' );
+const template = require( 'jade' ).compileFile( `${__dirname}/source/templates/homepage.jade` );
 
-app.use(logger('dev'))
-app.use(express.static(__dirname + '/static'))
+const app = express();
 
-app.get('/', function (req, res, next) {
+app.use( logger( 'dev' ) );
+app.use( express.static( `${__dirname}/static` ) );
+
+app.get( '/', ( req, res, next ) => {
   try {
-    var html = template({ title: 'Home' })
-    res.send(html)
-  } catch (e) {
-    next(e)
+    const html = template( { title: 'Home' } );
+    res.send( html );
+  } catch ( e ) {
+    next( e );
   }
-})
+} );
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log('Listening on http://localhost:' + (process.env.PORT || 3000))
-})
+app.listen( process.env.PORT || 3000, () => {
+  console.log( `Listening on http://localhost:${process.env.PORT || 3000}` );
+} );
