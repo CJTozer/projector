@@ -3,6 +3,15 @@ extend default
 block content
   p.
     Insert chart here
+  div#chart_div
 
-  - // @@@ TODO - move this into a JS file...
-  - console.log('JavaScript');
+  script.
+    // @@@ TODO move this to a JS file.
+    console.log('Hello Jade!');
+    google.charts.load('current', {'packages':['gantt']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      // @@@ Pull code from index.html
+      console.log('LOADED!');
+    };
+    console.log('Good bye!');
