@@ -19,5 +19,6 @@
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
     "stylus": "^0.54.5"
-  }
+  },
+  "repository": "CJTozer/projector"
 }
