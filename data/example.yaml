@@ -1,0 +1,17 @@
+# Example project data file
+tasks:
+  - id: ID1
+    description: Task 1 Description
+    group: Group1
+    start: 2017-01-15
+    end: null
+    done: 300000000
+    left: 200000000
+  - id: ID2
+    description: Task 2 Description
+    group: Group2
+    start: null
+    end: null
+    done: 300000000
+    left: 600000000
+    dependencies: ID1

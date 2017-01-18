@@ -2,7 +2,7 @@ extend default
 
 block content
   p.
-    Insert chart here
+    Insert chart here #{JSON.stringify(data)}
   div#chart_div
 
   script.
@@ -31,12 +31,20 @@ block content
       // - Start date - specified
       // - End data - max of time remaining and specified end date
       // - Percent completion - calculate from done/todo
-      data.addRows([
-        ['Investigation', 'Initial Investigation', 'CJT',
-         new Date(2017, 0, 1), new Date(2017, 0, 15), null,  80,  null],
-        ['SLD', 'SLD', 'AJT',
-         new Date(2017, 0, 15), null, daysToMilliseconds(15), 20,  'Investigation'],
-      ]);
+      var project_data = !{project_data};
+      var task_array = project_data.tasks.map(function(x) {
+        return [
+          x.id,
+          x.description,
+          x.group,
+          x.start ? new Date(x.start) : null,
+          x.end ? new Date(x.end) : null,
+          x.done + x.left,
+          100 * x.done / (x.done + x.left),
+          x.dependencies,
+        ];
+      });
+      data.addRows(task_array);
 
       var options = {
         // @@@ 42*N + 50?
