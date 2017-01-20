@@ -8,6 +8,7 @@ const app = express();
 
 app.use( logger( 'dev' ) );
 app.use( express.static( `${__dirname}/static` ) );
+app.use( express.static( `${__dirname}/source` ) );
 
 app.get( '/', ( req, res, next ) => {
   try {
