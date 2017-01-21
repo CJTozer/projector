@@ -21,7 +21,7 @@ google.charts.setOnLoadCallback( () => {
     x.start ? new Date( x.start ) : null,
     x.end ? new Date( x.end ) : null,
     x.duration,
-    x.progress,
+    x.progress || 0,
     x.dependencies,
   ] ) );
 
