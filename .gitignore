@@ -1,3 +1,6 @@
 node_modules/
 static/
 npm-debug.log
+
+# Only the example is stored in GitHub
+/data
