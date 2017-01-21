@@ -21,7 +21,7 @@ app.get( '/', ( req, res, next ) => {
       .map( f => f.slice( 0, -5 ) );
 
     const html = homepage( {
-      title: 'Home',
+      title: 'Projects',
       files,
     } );
     res.send( html );
@@ -43,7 +43,7 @@ app.get( '/gantt', ( req, res, next ) => {
     // @@@ If project not in files, show not found page.
 
     const html = ganttpage( {
-      title: 'Home',
+      title: `Projects - ${project}`,
       files,
       task_array: JSON.stringify( config.get_tasks( `${project}.yaml` ) ),
     } );
