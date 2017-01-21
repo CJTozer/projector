@@ -26,8 +26,14 @@ google.charts.setOnLoadCallback( () => {
   ] ) );
 
   const options = {
+    title: 'A Gantt',
     // @@@ 42*N + 50?
     height: ( 42 * 5 ) + 50,
+    gantt: {
+      labelStyle: {
+        fontName: 'Source Code Pro',
+      },
+    },
   };
 
   const chart = new google.visualization.Gantt( document.getElementById( 'chart_div' ) );
