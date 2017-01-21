@@ -4,12 +4,11 @@
   "description": "Simple charts using Google Gantt",
   "main": "index.js",
   "scripts": {
-    "build-css": "stylus source/stylesheets/index.styl -o static/css",
-    "watch-css": "stylus source/stylesheets/index.styl -o static/css -w",
     "clean": "node bin/clean",
+    "watch-css": "npm run clean && stylus source/stylesheets/index.styl -o static/css -w",
     "lint": "eslint . --fix",
-    "build": "npm run clean && npm run build-css",
-    "watch": "npm run clean && npm run watch-css & nodemon server -e js,jade",
+    "watch-lint": "nodemon -e js --exec npm run lint",
+    "dev-server": "nodemon server -e js,jade",
     "start": "node server"
   },
   "author": "C J Tozer",
