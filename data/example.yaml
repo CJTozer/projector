@@ -5,13 +5,13 @@ tasks:
     group: Group1
     start: 2017-01-15
     end: null
-    done: 300000000
-    left: 200000000
+    done: 3d
+    left: 1w1d
   - id: ID2
     description: Task 2 Description
     group: Group2
     start: null
     end: null
-    done: 300000000
-    left: 600000000
+    done: 2d
+    left: 4d
     dependencies: ID1

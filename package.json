@@ -7,6 +7,7 @@
     "build-css": "stylus source/stylesheets/index.styl -o static/css",
     "watch-css": "stylus source/stylesheets/index.styl -o static/css -w",
     "clean": "node bin/clean",
+    "lint": "eslint . --fix",
     "build": "npm run clean && npm run build-css",
     "watch": "npm run clean && npm run watch-css & nodemon server -e js,jade",
     "start": "node server"
@@ -14,6 +15,7 @@
   "author": "C J Tozer",
   "license": "MIT",
   "dependencies": {
+    "duration-js": "^3.9.2",
     "express": "^4.14.0",
     "fs-extra": "^2.0.0",
     "jade": "^1.11.0",
