@@ -11,8 +11,9 @@
     "dev-server": "nodemon server -e js,jade",
     "start": "node server"
   },
-  "bin" : {
-    "projector": "bin/projector/index.js"
+  "bin": {
+    "projector": "bin/projector.js",
+    "pj": "bin/projector.js"
   },
   "author": "C J Tozer",
   "license": "MIT",
@@ -25,7 +26,8 @@
     "merge-config": "^2.0.0",
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
-    "stylus": "^0.54.5"
+    "stylus": "^0.54.5",
+    "yargs": "^6.6.0"
   },
   "repository": "CJTozer/projector",
   "devDependencies": {
