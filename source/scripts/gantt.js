@@ -36,7 +36,7 @@ google.charts.setOnLoadCallback( () => {
     },
   };
 
-  const chart = new google.visualization.Gantt( document.getElementById( 'chart_div' ) );
+  const chart = new google.visualization.Gantt( document.getElementById( 'gantt_div' ) );
 
   chart.draw( data, options );
 } );

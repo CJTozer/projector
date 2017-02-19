@@ -7,7 +7,7 @@ const config = require( './lib/config' );
 
 const app = express();
 const homepage = jade.compileFile( `${__dirname}/source/templates/homepage.jade` );
-const ganttpage = jade.compileFile( `${__dirname}/source/templates/gantt.jade` );
+const project_page = jade.compileFile( `${__dirname}/source/templates/project.jade` );
 
 app.use( logger( 'dev' ) );
 app.use( express.static( `${__dirname}/static` ) );
@@ -42,7 +42,7 @@ app.get( '/gantt', ( req, res, next ) => {
     const project = req.query.project || 'example';
     // @@@ If project not in files, show not found page.
 
-    const html = ganttpage( {
+    const html = project_page( {
       title: `Projects - ${project}`,
       files,
       task_array: JSON.stringify( config.get_tasks( `${project}.yaml` ) ),
