@@ -42,8 +42,15 @@ risks:
     severity: Low
     likelihood: Medium
 notes:
-  - First note
-  # - Second note with updates:
-  #   - 2017-02-10 With update on the 10th
-  #   - 2017-02-05 Initially added on the 5th
-  - Third note with no updates
+  - description: First note
+  - description: Second note with updates
+    updates:
+      2017-02-10: With update on the 10th
+      2017-02-05: Initially added on the 5th
+  - description: Third note with no updates
+actions:
+  - description: Do something
+    owner: Bob
+  - description: Finish the frobulation
+    owner: Geoff
+    due: 2017-03-01

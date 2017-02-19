@@ -9,8 +9,8 @@ block content
   //- Top-left: Time
   div.left
     div.content#time
-      text TIME
-  //- TODO - JS
+      text Time
+  //- TODO - Chart
 
   //- Top-right: Risks
   div.right#risks
@@ -35,15 +35,17 @@ block content
   div.left
     div.content#notes
       ul
-        - each note in note_array
-          li #{note}
+        - each note in JSON.parse(note_array)
+          li #{note.description}
   //- TODO - expandable to see sub-notes
 
   //- Bottom-right: Actions
   div.right
     div.content#actions
-      text ACTIONS
-  //- TODO - JS
+      ul
+        - each action in JSON.parse(action_array)
+          li #{action.description}
+  //- TODO - action ownership and dates
 
   //- Reset floating
   div.clear
