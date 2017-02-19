@@ -10,11 +10,12 @@ block content
   div.left
     div.content#time
       text Time
+      div.chart#time_chart
   //- TODO - Chart
 
   //- Top-right: Risks
-  div.right#risks
-    div.content#time
+  div.right
+    div.content#risks
       text Risks
       ul
         - each risk in JSON.parse(risk_array)
@@ -26,10 +27,9 @@ block content
 
   //- Center - both columns: Gantt
   div
-    div.content#gantt_div
-  script.
-    var task_array = !{task_array};
-  script(src="scripts/gantt.js")
+    div.content#gantt
+      text Gantt
+      div.chart#gantt_chart
 
   //- Bottom-left: Notes
   div.left
@@ -49,3 +49,9 @@ block content
 
   //- Reset floating
   div.clear
+
+  //- script.
+  script.
+    var task_array = !{task_array};
+    //- var time_data = !{time_data};
+  script(src="scripts/gantt.js")
