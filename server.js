@@ -19,34 +19,24 @@ app.get( '/', ( req, res, next ) => {
     const files = fs.readdirSync( './data' )
       .filter( f => f.endsWith( '.yaml' ) )
       .map( f => f.slice( 0, -5 ) );
-
-    const html = homepage( {
-      title: 'Projects',
-      files,
-    } );
-    res.send( html );
-  } catch ( e ) {
-    next( e );
-  }
-} );
-
-app.get( '/gantt', ( req, res, next ) => {
-  // @@@ Get the correct data based on request parameter
-  try {
-    // Get projects
-    // @@@ Don't duplicate this?
-    const files = fs.readdirSync( './data' )
-      .filter( f => f.endsWith( '.yaml' ) )
-      .map( f => f.slice( 0, -5 ) );
+    var html;
 
     const project = req.query.project || 'example';
-    // @@@ If project not in files, show not found page.
+    if (files.indexOf(project) == -1) {
+      // Project not specified or non-existent.
+      html = homepage( {
+        title: 'Projects',
+        files: files,
+      } );
+    } else {
+      html = project_page( {
+        title: `Projects - ${project}`,
+        project: project,
+        files: files,
+        task_array: JSON.stringify( config.get_tasks( `${project}.yaml` ) ),
+      } );
+    }
 
-    const html = project_page( {
-      title: `Projects - ${project}`,
-      files,
-      task_array: JSON.stringify( config.get_tasks( `${project}.yaml` ) ),
-    } );
     res.send( html );
   } catch ( e ) {
     next( e );

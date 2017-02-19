@@ -7,7 +7,7 @@ html
     ul.nav
       li: a(href='/') Home
       - each file in files
-        li: a(href='/gantt?project=#{file}') #{file}
+        li: a(href='?project=#{file}') #{file}
 
     .main-content
       block content

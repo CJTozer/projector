@@ -2,7 +2,28 @@ extend default
 
 block content
   script(src='https://www.gstatic.com/charts/loader.js')
-  div#gantt_div
+
+  h2.
+    !{project}
+
+  div.left
+    div.content#time
+      text TIME
+  div.right#risks
+    div.content#time
+      text RISKS
+  div.clear
+
+  div
+    div.content#gantt_div
+
+    div.left
+      div.content#time
+        text NOTES
+    div.right#risks
+      div.content#time
+        text ACTIONS
+    div.clear
 
   script.
     var task_array = !{task_array};
