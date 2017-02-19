@@ -15,8 +15,11 @@ block content
   //- Top-right: Risks
   div.right#risks
     div.content#time
-      text RISKS
-  //- TODO - JS
+      text Risks
+      ul
+        - each risk in JSON.parse(risk_array)
+          li #{risk.description}
+  //- TODO - Tabulate - or order - and colour risks
 
   //- Reset floating
   div.clear
@@ -30,7 +33,7 @@ block content
 
   //- Bottom-left: Notes
   div.left
-    div.content#time
+    div.content#notes
       ul
         - each note in note_array
           li #{note}

@@ -36,6 +36,7 @@ app.get( '/', ( req, res, next ) => {
         project: project,
         files: files,
         task_array: JSON.stringify( project_config.tasks ),
+        risk_array: JSON.stringify( project_config.risks ),
         note_array: project_config.notes,
       } );
     }

@@ -34,6 +34,13 @@ tasks:
     end: 2017-02-27
     done: 4d
     left: 5d
+risks:
+  - description: It all goes horribly wrong
+    severity: High
+    likelihood: High
+  - description: Mild peril
+    severity: Low
+    likelihood: Medium
 notes:
   - First note
   # - Second note with updates:
