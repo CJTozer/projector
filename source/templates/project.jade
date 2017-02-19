@@ -6,25 +6,41 @@ block content
   h2.
     !{project}
 
+  //- Top-left: Time
   div.left
     div.content#time
       text TIME
+  //- TODO - JS
+
+  //- Top-right: Risks
   div.right#risks
     div.content#time
       text RISKS
+  //- TODO - JS
+
+  //- Reset floating
   div.clear
 
+  //- Center - both columns: Gantt
   div
     div.content#gantt_div
-
-    div.left
-      div.content#time
-        text NOTES
-    div.right#risks
-      div.content#time
-        text ACTIONS
-    div.clear
-
   script.
     var task_array = !{task_array};
   script(src="scripts/gantt.js")
+
+  //- Bottom-left: Notes
+  div.left
+    div.content#time
+      ul
+        - each note in note_array
+          li #{note}
+  //- TODO - expandable to see sub-notes
+
+  //- Bottom-right: Actions
+  div.right
+    div.content#actions
+      text ACTIONS
+  //- TODO - JS
+
+  //- Reset floating
+  div.clear

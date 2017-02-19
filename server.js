@@ -29,11 +29,14 @@ app.get( '/', ( req, res, next ) => {
         files: files,
       } );
     } else {
+      const project_config = new config(`${project}.yaml`);
+      console.log(project_config.notes);
       html = project_page( {
         title: `Projects - ${project}`,
         project: project,
         files: files,
-        task_array: JSON.stringify( config.get_tasks( `${project}.yaml` ) ),
+        task_array: JSON.stringify( project_config.tasks ),
+        note_array: project_config.notes,
       } );
     }
 
