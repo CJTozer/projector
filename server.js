@@ -3,7 +3,7 @@ const express = require( 'express' );
 const logger = require( 'morgan' );
 const jade = require( 'jade' );
 const fs = require( 'fs' );
-const config = require( './lib/config' );
+const Config = require( './lib/config' );
 
 const app = express();
 const homepage = jade.compileFile( `${__dirname}/source/templates/homepage.jade` );
@@ -19,22 +19,22 @@ app.get( '/', ( req, res, next ) => {
     const files = fs.readdirSync( './data' )
       .filter( f => f.endsWith( '.yaml' ) )
       .map( f => f.slice( 0, -5 ) );
-    var html;
+    let html;
 
     const project = req.query.project || 'example';
-    if (files.indexOf(project) == -1) {
+    if ( files.indexOf( project ) === -1 ) {
       // Project not specified or non-existent.
       html = homepage( {
         title: 'Projects',
-        files: files,
+        files,
       } );
     } else {
-      const project_config = new config(`${project}.yaml`);
-      console.log(project_config.notes);
+      const project_config = new Config( `${project}.yaml` );
+      console.log( project_config.notes );
       html = project_page( {
         title: `Projects - ${project}`,
-        project: project,
-        files: files,
+        project,
+        files,
         task_array: JSON.stringify( project_config.tasks ),
         risk_array: JSON.stringify( project_config.risks ),
         note_array: JSON.stringify( project_config.notes ),

@@ -3,10 +3,6 @@
 /* eslint-env browser: true */
 /* globals document, google, task_array */
 google.charts.load( 'current', { packages: [ 'gantt', 'corechart' ] } );
-google.charts.setOnLoadCallback( () => {
-  drawGanttChart();
-  drawTimeChart();
-} );
 
 function drawGanttChart() {
   const data = new google.visualization.DataTable();
@@ -47,20 +43,26 @@ function drawGanttChart() {
 }
 
 function drawTimeChart() {
-  var data = google.visualization.arrayToDataTable([
-    ['Year', 'Sales', 'Expenses'],
-    ['2013',  1000,      400],
-    ['2014',  1170,      460],
-    ['2015',  660,       1120],
-    ['2016',  1030,      540]
-  ]);
+  const data = google.visualization.arrayToDataTable( [
+    [ 'Year', 'Sales', 'Expenses' ],
+    [ '2013', 1000, 400 ],
+    [ '2014', 1170, 460 ],
+    [ '2015', 660, 1120 ],
+    [ '2016', 1030, 540 ],
+  ] );
 
-  var options = {
+  const options = {
     title: 'Company Performance',
-    hAxis: {title: 'Year',  titleTextStyle: {color: '#333'}},
-    vAxis: {minValue: 0}
+    hAxis: { title: 'Year', titleTextStyle: { color: '#333' } },
+    vAxis: { minValue: 0 },
   };
 
-  const chart = new google.visualization.AreaChart(document.getElementById('time_chart'));
-  chart.draw(data, options);
+  const chart = new google.visualization.AreaChart( document.getElementById( 'time_chart' ) );
+  chart.draw( data, options );
 }
+
+// Set the onLoad callback.
+google.charts.setOnLoadCallback( () => {
+  drawGanttChart();
+  drawTimeChart();
+} );

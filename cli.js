@@ -1,15 +1,16 @@
 #!/usr/bin/env node
 
 // Following yargs structure here: https://www.npmjs.com/package/yargs#example-command-hierarchy-using-commanddir
-const yargs = require('yargs');
+const yargs = require( 'yargs' );
+
 const argv = yargs
-  .commandDir('cmds')
-  .demandCommand(1)
+  .commandDir( 'cmds' )
+  .demandCommand( 1 )
   .help()
   .argv;
 
-if (!argv._handled) {
-  console.log("Unrecognized command: " + argv._[0]);
+if ( !argv.handled ) {
+  console.log( `Unrecognized command: ${argv._[ 0 ]}` );
   yargs.showHelp();
 }
 
