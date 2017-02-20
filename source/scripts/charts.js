@@ -28,13 +28,12 @@ function drawGanttChart() {
   ]));
 
   const options = {
-    title: 'A Gantt',
-    // @@@ 42*N + 50?
-    height: ( 42 * 5 ) + 50,
+    height: ( 32 * task_array.length ) + 50,
     gantt: {
       labelStyle: {
         fontName: 'Source Code Pro',
       },
+      barHeight: 20,
     },
   };
 
