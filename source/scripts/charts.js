@@ -28,7 +28,7 @@ function drawGanttChart() {
   ]));
 
   const options = {
-    height: ( 32 * task_array.length ) + 50,
+    height: ( 33 * task_array.length ) + 50,
     gantt: {
       labelStyle: {
         fontName: 'Source Code Pro',
