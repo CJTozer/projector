@@ -34,7 +34,7 @@ app.get( '/', ( req, res, next ) => {
     } else {
       const project_config = new Config( `${project}.yaml` );
       let title;
-      if (project_config.subtitle) {
+      if ( project_config.subtitle ) {
         title = `${project} - ${project_config.subtitle}`;
       } else {
         title = `${project}`;

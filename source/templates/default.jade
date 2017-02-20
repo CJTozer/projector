@@ -5,7 +5,7 @@ html
     title #{title}
   body
     ul.nav
-      li: a(href='/') Home
+      li Projects:
       - each file in files
         li: a(href='?project=#{file}') #{file}
 

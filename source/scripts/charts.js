@@ -45,21 +45,21 @@ function drawGanttChart() {
 
 /* globals time_data */
 function drawTimeChart() {
-  console.log(time_data);
+  console.log( time_data );
 
   // Version 2: DataTable.addRows
-  var data = new google.visualization.DataTable();
-  data.addColumn('date','Date');
-  data.addColumn('number','Done');
-  data.addColumn('number','Planned');
-  data.addColumn('number','Unplanned');
-  data.addColumn('number','Gain');
+  const data = new google.visualization.DataTable();
+  data.addColumn( 'date', 'Date' );
+  data.addColumn( 'number', 'Done' );
+  data.addColumn( 'number', 'Planned' );
+  data.addColumn( 'number', 'Unplanned' );
+  data.addColumn( 'number', 'Gain' );
 
-  Object.keys(time_data).forEach( x => {
-    console.log(x);
-    const row = time_data[x];
+  Object.keys( time_data ).forEach(( x ) => {
+    console.log( x );
+    const row = time_data[ x ];
     data.addRow([
-      new Date(x),
+      new Date( x ),
       row.done || 0,
       row.planned || 0,
       row.unplanned || 0,
@@ -69,10 +69,17 @@ function drawTimeChart() {
 
   const options = {
     legend: { position: 'bottom' },
+    height: 360,
     isStacked: true,
     vAxis: { minValue: 0 },
-    hAxis : { slantedText : false },
+    hAxis: { slantedText: false },
     pointSize: 4,
+    chartArea: {
+      left: 40,
+      right: 40,
+      top: 20,
+      bottom: 40,
+    },
   };
 
   const chart = new google.visualization.AreaChart( document.getElementById( 'time_chart' ));
