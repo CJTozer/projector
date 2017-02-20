@@ -1,4 +1,5 @@
 # Example project data file
+subtitle: An Example Project
 tasks:
   - id: ID1
     description: Task 1 Description
@@ -54,3 +55,39 @@ actions:
   - description: Finish the frobulation
     owner: Geoff
     due: 2017-03-01
+time_data:
+  2017-01-01:
+    done: 10
+    planned: 40
+    unplanned: 50
+    gain: 0
+  2017-01-02:
+    done: 20
+    planned: 30
+    unplanned: 50
+    gain: 0
+  2017-01-03:
+    done: 30
+    planned: 30
+    unplanned: 50
+    gain: -10
+  2017-01-04:
+    done: 35
+    planned: 35
+    unplanned: 40
+    gain: -10
+  2017-01-05:
+    done: 45
+    planned: 25
+    unplanned: 40
+    gain: -10
+  2017-01-06:
+    done: 55
+    planned: 15
+    unplanned: 20
+    gain: 10
+  2017-01-07:
+    done: 70
+    planned: 0
+    unplanned: 0
+    gain: 30

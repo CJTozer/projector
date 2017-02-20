@@ -1,9 +1,10 @@
 /* jshint browser: true */
 /* jshint devel: true */
 /* eslint-env browser: true */
-/* globals document, google, task_array */
+/* globals document, google */
 google.charts.load( 'current', { packages: [ 'gantt', 'corechart' ] });
 
+/* globals task_array */
 function drawGanttChart() {
   const data = new google.visualization.DataTable();
   data.addColumn( 'string', 'Task ID' );
@@ -42,21 +43,35 @@ function drawGanttChart() {
   chart.draw( data, options );
 }
 
+/* globals time_data */
 function drawTimeChart() {
-  const data = google.visualization.arrayToDataTable([
-    [ 'Year', 'Sales', 'Expenses' ],
-    [ '2010', 800, 310 ],
-    [ '2011', 850, 380 ],
-    [ '2012', 1120, 420 ],
-    [ '2013', 1000, 400 ],
-    [ '2014', 1170, 460 ],
-    [ '2015', 660, 1120 ],
-    [ '2016', 1030, 540 ],
-  ]);
+  console.log(time_data);
+
+  // Version 2: DataTable.addRows
+  var data = new google.visualization.DataTable();
+  data.addColumn('date','Date');
+  data.addColumn('number','Done');
+  data.addColumn('number','Planned');
+  data.addColumn('number','Unplanned');
+  data.addColumn('number','Gain');
+
+  Object.keys(time_data).forEach( x => {
+    console.log(x);
+    const row = time_data[x];
+    data.addRow([
+      new Date(x),
+      row.done || 0,
+      row.planned || 0,
+      row.unplanned || 0,
+      row.gain || 0,
+    ]);
+  });
 
   const options = {
     legend: { position: 'bottom' },
+    isStacked: true,
     vAxis: { minValue: 0 },
+    hAxis : { slantedText : false },
     pointSize: 4,
   };
 

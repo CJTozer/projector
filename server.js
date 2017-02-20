@@ -33,15 +33,20 @@ app.get( '/', ( req, res, next ) => {
       });
     } else {
       const project_config = new Config( `${project}.yaml` );
-      console.log( project_config.notes );
+      let title;
+      if (project_config.subtitle) {
+        title = `${project} - ${project_config.subtitle}`;
+      } else {
+        title = `${project}`;
+      }
       html = project_page({
-        title: `Projects - ${project}`,
-        project,
+        title,
         files,
         task_array: JSON.stringify( project_config.tasks ),
         risk_array: JSON.stringify( project_config.risks ),
         note_array: JSON.stringify( project_config.notes ),
         action_array: JSON.stringify( project_config.actions ),
+        time_data: JSON.stringify( project_config.time_data ),
       });
     }
 

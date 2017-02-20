@@ -4,7 +4,7 @@ block content
   script(src='https://www.gstatic.com/charts/loader.js')
 
   h2.
-    !{project}
+    !{title}
 
   //- Top-left: Time
   div.left
@@ -55,5 +55,5 @@ block content
   //- script.
   script.
     var task_array = !{task_array};
-    //- var time_data = !{time_data};
+    var time_data = !{time_data};
   script(src="scripts/charts.js")
