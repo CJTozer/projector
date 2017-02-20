@@ -34,6 +34,7 @@ block content
   //- Bottom-left: Notes
   div.left
     div.content#notes
+      text Notes
       ul
         - each note in JSON.parse(note_array)
           li #{note.description}
@@ -42,6 +43,7 @@ block content
   //- Bottom-right: Actions
   div.right
     div.content#actions
+      text Actions
       ul
         - each action in JSON.parse(action_array)
           li #{action.description}

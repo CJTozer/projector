@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+'use strict';
 
 const express = require( 'express' );
 const logger = require( 'morgan' );

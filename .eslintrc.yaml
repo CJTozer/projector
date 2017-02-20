@@ -26,3 +26,4 @@ rules:
     - error
     -
       props: false
+  strict: off
