@@ -16,7 +16,7 @@ block content
   //- Top-right: Risks
   div.right
     div.content#risks
-      text Risks
+      text Key Risks
       ul
         - each risk in JSON.parse(risk_array)
           li #{risk.description}
@@ -47,7 +47,8 @@ block content
       ul
         - each action in JSON.parse(action_array)
           li #{action.description}
-  //- TODO - action ownership and dates
+            span.owner (#{action.owner})
+            //- span.due (#{action.due})
 
   //- Reset floating
   div.clear

@@ -69,25 +69,25 @@ time_data:
   2017-01-03:
     done: 30
     planned: 30
-    unplanned: 50
-    gain: -10
+    unplanned: 30
+    gain: 10
   2017-01-04:
     done: 35
     planned: 35
-    unplanned: 40
-    gain: -10
+    unplanned: 20
+    gain: 10
   2017-01-05:
     done: 45
-    planned: 25
-    unplanned: 40
-    gain: -10
+    planned: 45
+    unplanned: 10
+    gain: 0
   2017-01-06:
     done: 60
-    planned: 35
+    planned: 45
     unplanned: 0
-    gain: 5
+    gain: -5
   2017-01-07:
     done: 90
-    planned: 0
+    planned: 20
     unplanned: 0
-    gain: 10
+    gain: -10
