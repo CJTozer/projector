@@ -1,14 +1,14 @@
 # Example project data file
 subtitle: An Example Project
 tasks:
-  - id: ID1
+  ID1:
     description: Task 1 Description
     group: Group1
     start: 2017-01-01
     end: null
     done: 3d
     left: 1w1d
-  - id: ID2
+  ID2:
     description: Task 2 Description
     group: Group2
     start: null
@@ -16,19 +16,19 @@ tasks:
     done: 2d
     left: 4d
     dependencies: ID1
-  - id: ID3
+  ID3:
     description: Task 3 Description
     group: Group1
     end: 2017-02-15
     left: 1w
     dependencies: ID1,ID2
-  - id: ID4
+  ID4:
     description: Task 4 Description
     # No group
     start: 2017-01-25
     done: 4d
     left: 25d
-  - id: ID5
+  ID5:
     description: Task 5 Description
     # No group
     # No start - defaults to today (without dependencies)
