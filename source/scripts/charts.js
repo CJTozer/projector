@@ -47,7 +47,7 @@ function drawTimeChart() {
   const data = new google.visualization.DataTable();
   data.addColumn( 'date', 'Date' );
   data.addColumn( 'number', 'Done' );
-  data.addColumn( 'number', 'Planned' );
+  data.addColumn( 'number', 'To Do' );
   data.addColumn( 'number', 'Unplanned' );
   data.addColumn( 'number', 'Gain' );
 
