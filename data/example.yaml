@@ -57,37 +57,35 @@ actions:
     due: 2017-03-01
 time_data:
   2017-01-01:
+    budget: 100
     done: 10
-    planned: 40
+    todo: 40
     unplanned: 50
-    gain: 0
   2017-01-02:
+    budget: 100
     done: 20
-    planned: 30
+    todo: 30
     unplanned: 50
-    gain: 0
   2017-01-03:
+    budget: 100
     done: 30
-    planned: 30
+    todo: 30
     unplanned: 30
-    gain: 10
   2017-01-04:
+    budget: 100
     done: 35
-    planned: 35
+    todo: 35
     unplanned: 20
-    gain: 10
   2017-01-05:
+    budget: 100
     done: 45
-    planned: 45
+    todo: 45
     unplanned: 10
-    gain: 0
   2017-01-06:
+    budget: 100
     done: 60
-    planned: 45
-    unplanned: 0
-    gain: -5
+    todo: 45
   2017-01-07:
+    budget: 100
     done: 90
-    planned: 20
-    unplanned: 0
-    gain: -10
+    todo: 20

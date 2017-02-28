@@ -44,9 +44,6 @@ function drawGanttChart() {
 
 /* globals time_data */
 function drawTimeChart() {
-  console.log( time_data );
-
-  // Version 2: DataTable.addRows
   const data = new google.visualization.DataTable();
   data.addColumn( 'date', 'Date' );
   data.addColumn( 'number', 'Done' );
@@ -57,12 +54,17 @@ function drawTimeChart() {
   Object.keys( time_data ).forEach(( x ) => {
     console.log( x );
     const row = time_data[ x ];
+    const budget = row.budget || 0;
+    const done = row.done || 0;
+    const todo = row.todo || 0;
+    const unplanned = row.unplanned || 0;
+    const gain = budget - done - todo - unplanned;
     data.addRow([
       new Date( x ),
-      row.done || 0,
-      row.planned || 0,
-      row.unplanned || 0,
-      row.gain || 0,
+      done,
+      todo,
+      unplanned,
+      gain,
     ]);
   });
 
