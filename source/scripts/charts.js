@@ -52,7 +52,6 @@ function drawTimeChart() {
   data.addColumn( 'number', 'Gain' );
 
   Object.keys( time_data ).forEach(( x ) => {
-    console.log( x );
     const row = time_data[ x ];
     const budget = row.budget || 0;
     const done = row.done || 0;
