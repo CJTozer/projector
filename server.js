@@ -3,6 +3,8 @@
 'use strict';
 
 const express = require( 'express' );
+const favicon = require( 'serve-favicon' );
+const path = require( 'path' );
 const logger = require( 'morgan' );
 const jade = require( 'jade' );
 const fs = require( 'fs' );
@@ -15,6 +17,7 @@ const project_page = jade.compileFile( `${__dirname}/source/templates/project.ja
 app.use( logger( 'dev' ));
 app.use( express.static( `${__dirname}/static` ));
 app.use( '/scripts', express.static( `${__dirname}/source/scripts` ));
+app.use( favicon( path.join( __dirname, 'source', 'images', 'favicon.ico' )));
 
 app.get( '/', ( req, res, next ) => {
   try {

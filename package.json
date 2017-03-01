@@ -26,6 +26,7 @@
     "merge-config": "^2.0.0",
     "morgan": "^1.7.0",
     "nodemon": "^1.11.0",
+    "serve-favicon": "^2.4.1",
     "stylus": "^0.54.5",
     "yargs": "^6.6.0"
   },
